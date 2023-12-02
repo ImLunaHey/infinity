@@ -5,7 +5,8 @@ import { Box } from '../box';
 
 export const WebPage: React.FC<{
   url: string;
-}> = ({ url }) => {
+  onClose?: () => void;
+}> = ({ url, onClose }) => {
   const [title, setTitle] = useState('Loading...');
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export const WebPage: React.FC<{
   }, [url]);
 
   return (
-    <Box id={`web-page-${url}`} title={title}>
+    <Box id={`web-page-${url}`} title={title} onClose={onClose}>
       <iframe src={url} title="Web Page Embed" className="w-full h-full border-none" />
     </Box>
   );

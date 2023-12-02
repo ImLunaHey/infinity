@@ -6,8 +6,7 @@ import { Box } from '../box';
 export const Youtube: React.FC<{
   videoId: string;
   onClose?: () => void;
-  onMinimize?: () => void;
-}> = ({ videoId }) => {
+}> = ({ videoId, onClose }) => {
   const [title, setTitle] = useState('Loading...');
   const videoUrl = `https://www.youtube.com/embed/${videoId}`;
   const noembedUrl = `https://noembed.com/embed?url=https://www.youtube.com/watch?v=${videoId}`;
@@ -24,7 +23,7 @@ export const Youtube: React.FC<{
   }, [videoId, noembedUrl]);
 
   return (
-    <Box id={`youtube-${videoId}`} title={title}>
+    <Box id={`youtube-${videoId}`} title={title} onClose={onClose}>
       <iframe className={cn('w-full border-none h-full')} src={videoUrl} title="YouTube video player" allowFullScreen />
     </Box>
   );

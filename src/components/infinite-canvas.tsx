@@ -19,9 +19,9 @@ const Controls: React.FC<{
 
 const InfiniteCanvas = () => {
   const [components, setComponents] = useState([
-    <Youtube key="5aYTx2ROngo" videoId={'5aYTx2ROngo'} />,
-    <Youtube key="jm91RK9QnuQ" videoId={'jm91RK9QnuQ'} />,
-    <WebPage key="https://fish.lgbt" url="https://fish.lgbt" />,
+    ({ onClose }: { onClose: () => void }) => <Youtube onClose={onClose} key="5aYTx2ROngo" videoId={'5aYTx2ROngo'} />,
+    ({ onClose }: { onClose: () => void }) => <Youtube onClose={onClose} key="jm91RK9QnuQ" videoId={'jm91RK9QnuQ'} />,
+    ({ onClose }: { onClose: () => void }) => <WebPage onClose={onClose} key="https://fish.lgbt" url="https://fish.lgbt" />,
   ]);
   const [position, setPosition] = useLocalStorage('position', { x: 0, y: 0 });
 
@@ -48,9 +48,17 @@ const InfiniteCanvas = () => {
           transform: `translate(${position.x}px, ${position.y}px)`,
         }}
       >
-        {components.map((component, index) => (
+        {components.map((Component, index) => (
           <div key={index} className="absolute" style={{ top: `${(index + 1) * 250}px`, left: '100px' }}>
-            {component}
+            <Component
+              onClose={() =>
+                setComponents((components) => {
+                  const newComponents = [...components];
+                  newComponents.splice(index, 1);
+                  return newComponents;
+                })
+              }
+            />
           </div>
         ))}
       </div>
