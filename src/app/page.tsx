@@ -1,5 +1,6 @@
 'use client';
 import InfiniteCanvas from '@/components/infinite-canvas';
+import { Pixel } from '@/components/pixel';
 import { useIsClient } from '@uidotdev/usehooks';
 
 export default function Home() {
@@ -9,5 +10,10 @@ export default function Home() {
     return null;
   }
 
-  return <InfiniteCanvas />;
+  return (
+    <>
+      <InfiniteCanvas />
+      <Pixel domain="∞.fish.lgbt" />
+    </>
+  );
 }

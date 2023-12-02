@@ -53,9 +53,9 @@ export const Box: React.FC<{
         onMouseLeave={() => {
           setIsHovering(false);
         }}
-        className="p-2 bg-[#202123] rounded flex flex-col w-full h-full"
+        className="rounded bg-[#202123] flex flex-col w-full h-full"
       >
-        <div className="flex justify-between items-center cursor-move p-1 rounded-t-lg">
+        <div className="flex justify-between items-center cursor-move bg-[#202123] rounded-t-lg opacity-75 p-2">
           <span className="text-[#c4c4c4]">{title || 'YouTube'}</span>
           <AnimatePresence mode="wait">
             {isHovering && (

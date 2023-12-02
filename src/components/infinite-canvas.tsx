@@ -22,6 +22,12 @@ const InfiniteCanvas = () => {
     ({ onClose }: { onClose: () => void }) => <Youtube onClose={onClose} key="5aYTx2ROngo" videoId={'5aYTx2ROngo'} />,
     ({ onClose }: { onClose: () => void }) => <Youtube onClose={onClose} key="jm91RK9QnuQ" videoId={'jm91RK9QnuQ'} />,
     ({ onClose }: { onClose: () => void }) => <WebPage onClose={onClose} key="https://fish.lgbt" url="https://fish.lgbt" />,
+    ({ onClose }: { onClose: () => void }) => (
+      <WebPage onClose={onClose} key="https://pretty.fish.lgbt" url="https://pretty.fish.lgbt" />
+    ),
+    ({ onClose }: { onClose: () => void }) => (
+      <WebPage onClose={onClose} key="https://dns.fish.lgbt" url="https://dns.fish.lgbt" />
+    ),
   ]);
   const [position, setPosition] = useLocalStorage('position', { x: 0, y: 0 });
 
