@@ -4,15 +4,16 @@ import { Youtube } from './embeds/youtube';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { WebPage } from './embeds/web-page';
 import { HomeIcon } from './icons';
+import { Button } from './button';
 
 const Controls: React.FC<{
   onClick?: () => void;
 }> = ({ onClick }) => {
   return (
-    <div className="absolute bottom-2 right-2 p-2">
-      <button onClick={onClick}>
+    <div className="absolute bottom-2 right-2">
+      <Button onClick={onClick}>
         <HomeIcon />
-      </button>
+      </Button>
     </div>
   );
 };
